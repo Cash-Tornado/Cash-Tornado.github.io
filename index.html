@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+
+  <title>Cash Tornado — Crypto Mixing, AML Risk &amp; Compliance Screening Guide (2026)</title>
+  <meta name="description" content="Cash Tornado guide (2026): what crypto cash tornado mixing services are, why they are flagged in AML screening, how blockchain analytics tools detect mixer exposure, what compliance teams do when a wallet shows cash tornado interaction, and how to handle flagged transactions.">
+  <meta name="author" content="Crypto Finance Experts">
+  <link rel="canonical" href="https://cash-tornado.example.com/">
+  <link rel="icon" type="image/png" href="Tornado.jpg">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://cash-tornado.example.com/">
+  <meta property="og:title" content="Cash Tornado — Crypto Mixing, AML Risk &amp; Compliance Screening (2026)">
+  <meta property="og:description" content="What cash tornado crypto mixing is, why it triggers AML flags, how analytics tools detect it, and what to do when a wallet shows mixer exposure.">
+  <meta property="og:image" content="cover.png">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Cash Tornado — Crypto Mixing &amp; AML Risk (2026)">
+  <meta property="twitter:description" content="Cash tornado mixing explained: AML risk, blockchain analytics detection, compliance responses, and handling flagged wallets.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cash Tornado — Crypto Mixing, AML Risk & Compliance Screening Guide (2026)",
+    "description": "What cash tornado crypto mixing is, why it triggers AML flags, how analytics tools detect mixer exposure, and how compliance teams respond.",
+    "author": { "@type": "Organization", "name": "Crypto Finance Experts", "url": "https://cash-tornado.example.com/" },
+    "publisher": { "@type": "Organization", "name": "Crypto Finance Experts" },
+    "datePublished": "2026-03-18",
+    "dateModified": "2026-03-18",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://cash-tornado.example.com/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cash-tornado.example.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Compliance Guides", "item": "https://cash-tornado.example.com/guides/" },
+      { "@type": "ListItem", "position": 3, "name": "Cash Tornado", "item": "https://cash-tornado.example.com/cash-tornado/" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a cash tornado in crypto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A cash tornado in the crypto context refers to cryptocurrency mixing or tumbling services that rapidly cycle digital assets through many addresses to obscure their origin and destination. Named for the spinning, disorienting pattern of fund flows they create on the blockchain, these services break the transaction graph that analytics tools use to trace fund provenance. They are flagged as high-risk in AML screening because deliberately obscuring transaction history is a textbook money laundering technique, regardless of the user's underlying intent."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does cash tornado mixer exposure trigger AML flags?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mixer and tumbler exposure triggers AML flags because the deliberate obfuscation of fund flows is a recognised money laundering red flag under FATF guidance. When a wallet has sent funds to or received funds from a known mixer cluster, blockchain analytics tools score it as high-risk regardless of the user's underlying intent. FATF Recommendation 15 requires VASPs to apply enhanced due diligence when transaction monitoring identifies techniques designed to evade AML controls — and mixing is explicitly cited as one such technique."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      /* Dark Violet + Rose */
+      --primary: #6D28D9;
+      --primary-600: #5B21B6;
+      --primary-700: #4C1D95;
+      --accent: #FB7185;
+      --accent-soft: #FECDD3;
+
+      --ink: #FFF1F2;
+      --muted: #A1A1AA;
+      --muted-2: #71717A;
+
+      --bg: #07010F;
+      --panel: #100318;
+      --panel-2: #160422;
+      --line: rgba(255,255,255,.10);
+
+      --ok: #22C55E;
+      --warn: #F59E0B;
+      --error: #EF4444;
+
+      --shadow: 0 18px 44px rgba(0,0,0,.65);
+      --radius: 14px;
+      --radius-lg: 22px;
+      --gap: 1.25rem;
+      --gap-lg: 2rem;
+    }
+
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      color: var(--muted);
+      background:
+        radial-gradient(900px 600px at 12% 0%,  rgba(109,40,217,.24), transparent 60%),
+        radial-gradient(900px 600px at 88% 12%, rgba(251,113,133,.08), transparent 60%),
+        radial-gradient(900px 600px at 50% 90%, rgba(91,33,182,.18), transparent 60%),
+        linear-gradient(180deg, #04010A 0%, #07010F 50%, #04010A 100%);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none }
+    a:hover { text-decoration: underline }
+    img { max-width: 100%; height: auto; display: block }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem }
+
+    h1,h2,h3,h4 { color: var(--ink); line-height: 1.25; margin: 0 0 .6rem }
+    h1 { font-size: clamp(2rem,4.5vw,3.1rem); font-weight: 950; letter-spacing: .2px }
+    h2 { font-size: clamp(1.35rem,2.8vw,2rem); margin-top: 2.2rem; padding-top: .6rem; border-top: 1px solid var(--line) }
+    h3 { font-size: clamp(1.05rem,2.2vw,1.3rem); color: var(--accent-soft) }
+    p, li, td, th { font-size: 1rem }
+    .lead { font-size: 1.125rem; color: #FFE4E6 }
+    .muted { color: var(--muted) }
+    .muted-2 { color: var(--muted-2) }
+
+    .breadcrumb { padding: .7rem 0; font-size: .85rem; color: var(--muted-2) }
+    .breadcrumb a { color: var(--muted); font-weight: 600 }
+    .breadcrumb a:hover { color: var(--accent) }
+    .breadcrumb span { margin: 0 .4rem; opacity: .5 }
+
+    .meta-bar { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: .75rem; font-size: .83rem; color: var(--muted-2) }
+    .meta-bar time { font-weight: 700; color: var(--accent-soft) }
+
+    header.hero {
+      padding: clamp(2rem,6vw,4rem) 0;
+      background:
+        radial-gradient(700px 420px at 18% 10%, rgba(109,40,217,.28), transparent 60%),
+        radial-gradient(700px 420px at 90% 20%, rgba(251,113,133,.10), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.03), transparent 55%);
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-grid { display: grid; gap: var(--gap-lg); grid-template-columns: 1fr }
+    .hero-card {
+      background: linear-gradient(180deg, rgba(22,4,34,.88), rgba(16,3,24,.72));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: clamp(1rem,3vw,1.75rem);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+    .brand-row { display: flex; align-items: center; gap: .9rem; margin-bottom: .75rem }
+    .brand-logo {
+      width: 54px; height: 54px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      padding: .35rem; object-fit: contain;
+      box-shadow: 0 10px 22px rgba(0,0,0,.45);
+      flex: 0 0 auto;
+    }
+
+    .cta-wrap { display: flex; justify-content: center; margin-top: 1.5rem }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 55%, #BE185D 100%);
+      color: #fff;
+      padding: 1.05rem 3rem;
+      border-radius: 14px;
+      font-weight: 900;
+      font-size: 1.15rem;
+      letter-spacing: .4px;
+      box-shadow:
+        0 0 0 1px rgba(251,113,133,.28),
+        0 8px 24px rgba(109,40,217,.50),
+        0 20px 48px rgba(109,40,217,.22);
+      border: 1px solid rgba(255,255,255,.18);
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .cta:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow:
+        0 0 0 2px rgba(251,113,133,.45),
+        0 12px 32px rgba(109,40,217,.60),
+        0 28px 60px rgba(109,40,217,.28);
+      filter: brightness(1.1);
+      text-decoration: none;
+    }
+
+    .note {
+      border-left: 3px solid var(--accent);
+      padding: .75rem 1rem;
+      background: rgba(251,113,133,.07);
+      border-radius: 10px;
+      color: #FFE4E6;
+    }
+
+    section.step-guide { padding: clamp(2rem,6vw,3.5rem) 0 }
+    .steps { display: grid; gap: var(--gap); grid-template-columns: 1fr }
+    .step {
+      background: linear-gradient(180deg, rgba(22,4,34,.82), rgba(16,3,24,.66));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      box-shadow: 0 12px 26px rgba(0,0,0,.55);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .step:hover { transform: translateY(-4px); box-shadow: 0 18px 34px rgba(0,0,0,.65) }
+    .step .icon {
+      width: 54px; height: 54px; border-radius: 50%;
+      display: inline-grid; place-items: center;
+      background: rgba(109,40,217,.22);
+      margin-bottom: .6rem; color: var(--accent-soft);
+      font-weight: 950;
+      border: 1px solid rgba(255,255,255,.10);
+    }
+
+    main .card {
+      background: linear-gradient(180deg, rgba(22,4,34,.74), rgba(16,3,24,.60));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 12px 26px rgba(0,0,0,.55);
+    }
+
+    .grid-2 { display: grid; gap: var(--gap); grid-template-columns: 1fr }
+    .pillbar { display: flex; flex-wrap: wrap; gap: .6rem; margin: .75rem 0 0 }
+    .pill { border: 1px solid var(--line); background: rgba(255,255,255,.05); padding: .4rem .65rem; border-radius: 999px; font-weight: 800; color: #FFE4E6 }
+
+    .toc { border: 1px solid var(--line); background: linear-gradient(180deg, rgba(109,40,217,.10), rgba(255,255,255,.02)); border-radius: var(--radius); padding: 1rem }
+    .toc strong { color: var(--ink) }
+    .toc ul { margin: .5rem 0 0; padding-left: 1.1rem }
+    .toc li { margin: .25rem 0 }
+    .toc a { font-weight: 800; color: var(--accent) }
+
+    table { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: 12px }
+    th, td { padding: .9rem; border-bottom: 1px solid var(--line) }
+    th { background: rgba(109,40,217,.12); color: var(--ink); text-align: left }
+    tr.highlight { background: rgba(109,40,217,.08) }
+    tr:hover { background: rgba(255,255,255,.03) }
+
+    .ok { color: var(--ok) } .warn { color: var(--warn) } .err { color: var(--error) }
+
+    .eeat { background: linear-gradient(180deg, rgba(109,40,217,.10), rgba(255,255,255,.02)); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem; box-shadow: 0 12px 26px rgba(0,0,0,.55) }
+
+    .faq-item { border-bottom: 1px solid var(--line); padding: .9rem 0 }
+    .faq-button { all: unset; display: flex; justify-content: space-between; align-items: center; width: 100%; cursor: pointer; padding: .3rem 0 }
+    .faq-button:focus-visible { outline: 2px solid var(--accent) }
+    .faq-button h3 { margin: 0; font-weight: 950 }
+    .faq-content { max-height: 0; overflow: hidden; transition: max-height .28s ease }
+    .faq-content.open { padding-top: .6rem }
+    .faq-plus { font-weight: 950; color: var(--accent-soft); font-size: 1.1rem; flex-shrink: 0; margin-left: .75rem }
+
+    .callout-grid { display: grid; gap: var(--gap); grid-template-columns: 1fr; margin-top: .75rem }
+    .mini { background: rgba(255,255,255,.03); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem }
+    .mini h3 { margin-bottom: .35rem }
+    .kpi-badges { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: .5rem }
+    .kpi-badges span { border: 1px solid rgba(109,40,217,.28); background: rgba(109,40,217,.12); color: var(--accent-soft); padding: .3rem .55rem; border-radius: 999px; font-weight: 900; font-size: .9rem }
+
+    .stat-block { display: flex; flex-wrap: wrap; gap: var(--gap); margin: 1rem 0 }
+    .stat { flex: 1; min-width: 140px; background: rgba(109,40,217,.10); border: 1px solid rgba(251,113,133,.16); border-radius: var(--radius); padding: .9rem 1rem; text-align: center }
+    .stat-num { display: block; font-size: 1.75rem; font-weight: 950; color: var(--accent); line-height: 1.1 }
+    .stat-lbl { font-size: .82rem; color: var(--muted); margin-top: .25rem }
+
+    .risk-row { display: flex; align-items: center; gap: .75rem; margin: .4rem 0 }
+    .risk-lbl { min-width: 90px; font-size: .85rem; font-weight: 700; color: var(--accent-soft) }
+    .risk-track { flex: 1; height: 6px; background: rgba(255,255,255,.08); border-radius: 99px; overflow: hidden }
+    .risk-fill { height: 100%; border-radius: 99px }
+    .risk-fill.low  { background: linear-gradient(90deg,#15803D,#22C55E); width: 25% }
+    .risk-fill.med  { background: linear-gradient(90deg,#B45309,#F59E0B); width: 55% }
+    .risk-fill.high { background: linear-gradient(90deg,#7F1D1D,#EF4444); width: 88% }
+    .risk-val { min-width: 55px; text-align: right; font-size: .82rem; font-weight: 800 }
+
+    @media (min-width: 860px) {
+      .steps { grid-template-columns: repeat(4,1fr) }
+      .grid-2 { grid-template-columns: 1fr 1fr }
+      .callout-grid { grid-template-columns: 1fr 1fr }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero" role="banner">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/guides/">Compliance Guides</a><span>›</span>
+      <span aria-current="page">Cash Tornado</span>
+    </nav>
+
+    <div class="hero-grid">
+      <div class="hero-card" aria-label="Intro">
+        <div class="meta-bar">
+          <span>By <strong>Crypto Finance Experts</strong></span>
+          <span>·</span>
+          <time datetime="2026-03-18">March 18, 2026</time>
+          <span>·</span>
+          <span>8 min read</span>
+        </div>
+
+        <div class="brand-row">
+          <img class="brand-logo"
+               src="Tornado.jpg"
+               alt="Cash Tornado crypto compliance reference"
+               width="54" height="54">
+          <div>
+            <div class="muted" style="font-weight:900;letter-spacing:.2px;">Compliance Guide</div>
+            <div class="muted-2" style="font-size:.95rem;">Crypto Mixing&nbsp;•&nbsp;AML Risk&nbsp;•&nbsp;Blockchain Analytics&nbsp;•&nbsp;Flagged Wallets</div>
+          </div>
+        </div>
+
+        <h1>Cash Tornado: Crypto Mixing, AML Risk &amp; Compliance Screening (2026)</h1>
+        <p class="lead">
+          A practical compliance guide to cash tornado-style crypto mixing:
+          what it is, why blockchain analytics tools flag it as high-risk,
+          how AML screening detects mixer exposure even through multiple hops,
+          what happens to a wallet that has interacted with a cash tornado service,
+          and how compliance teams and individual users should respond.
+        </p>
+
+        <div class="cta-wrap">
+          <a href="https://en.wikipedia.org/wiki/Cryptocurrency_tumbler"
+             class="cta" target="_blank" rel="noopener" aria-label="Cash Tornado">
+            Cash Tornado
+          </a>
+        </div>
+
+        <div class="note" style="margin-top:1.25rem;">
+          <strong>Key distinction:</strong> Cash tornado mixing services are flagged as high-risk
+          in AML screening because deliberately obscuring transaction history is a recognised
+          money laundering technique — regardless of user intent. A wallet with mixer exposure
+          does not automatically indicate criminality, but it does require enhanced due diligence
+          and a documented compliance response.
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="step-guide" aria-labelledby="workflow-title">
+  <div class="container">
+    <h2 id="workflow-title">Cash Tornado Compliance Workflow: Detect → Assess → Respond → Document</h2>
+    <div class="steps" role="list">
+      <article class="step" role="listitem">
+        <div class="icon">①</div>
+        <h3>Detect mixer exposure in screening</h3>
+        <p>Blockchain analytics tools identify when a wallet has sent funds to or received funds from a known cash tornado or mixer cluster. The tool returns a risk score with a mixer-exposure category flag and the hop distance from the interaction.</p>
+      </article>
+      <article class="step" role="listitem">
+        <div class="icon">②</div>
+        <h3>Assess exposure depth and volume</h3>
+        <p>Not all mixer flags are equal. Direct interaction (1 hop) at significant volume is a serious AML signal. Indirect exposure at 3+ hops through legitimate intermediaries carries far less compliance weight. The category breakdown and hop distance determine the appropriate response.</p>
+      </article>
+      <article class="step" role="listitem">
+        <div class="icon">③</div>
+        <h3>Apply the risk-based response</h3>
+        <p>Direct cash tornado interaction above a volume threshold: block and request source-of-funds documentation. Indirect exposure below threshold: enhanced due diligence and documentation. Minor indirect exposure at high hop count: log and allow with monitoring. Never auto-block all mixer flags identically.</p>
+      </article>
+      <article class="step" role="listitem">
+        <div class="icon">④</div>
+        <h3>Document every decision</h3>
+        <p>Record the screening result, the category breakdown, hop distances, the policy rule applied, the action taken, and — if the case went to analyst review — the rationale for the decision. This audit trail is what regulators examine.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<main class="container" role="main">
+<article>
+
+  <section class="card toc" aria-label="Table of Contents">
+    <strong>On this page (Cash Tornado):</strong>
+    <ul>
+      <li><a href="#overview">What cash tornado crypto mixing is</a></li>
+      <li><a href="#stats">Cash tornado scale: mixer activity by the numbers</a></li>
+      <li><a href="#how-detected">How blockchain analytics detect cash tornado exposure</a></li>
+      <li><a href="#risk">Cash tornado AML risk: why it triggers compliance flags</a></li>
+      <li><a href="#impact">What happens when a wallet has cash tornado exposure</a></li>
+      <li><a href="#tools">Tools that detect cash tornado mixer interactions</a></li>
+      <li><a href="#user-response">What to do if your wallet is flagged for cash tornado use</a></li>
+      <li><a href="#vasp-response">How VASPs should respond to cash tornado exposure</a></li>
+      <li><a href="#legal">Legal context: cash tornado mixing and regulatory status</a></li>
+      <li><a href="#best-practices">Best practices for compliance teams</a></li>
+      <li><a href="#troubleshooting">Troubleshooting cash tornado flag disputes</a></li>
+      <li><a href="#eeat">Sources &amp; references</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </section>
+
+  <section class="card" id="overview">
+    <h2>What Cash Tornado Crypto Mixing Is</h2>
+    <p>
+      Cash tornado refers to cryptocurrency mixing and tumbling services that rapidly cycle
+      digital assets through many intermediary addresses to break the transaction trail that
+      blockchain analytics tools use to trace fund provenance. The term captures the spinning,
+      chaotic pattern these services create in the on-chain transaction graph — making it
+      difficult for analytics tools to follow funds from source to destination.
+    </p>
+    <p>
+      The most well-known example is Tornado Cash — a smart-contract-based mixer on Ethereum
+      that was sanctioned by OFAC in August 2022. The broader category of cash tornado-style
+      services includes centralised coin mixers, decentralised protocol mixers, and CoinJoin
+      implementations. A comprehensive technical overview is available at
+      <a href="https://en.wikipedia.org/wiki/Cryptocurrency_tumbler" target="_blank" rel="noopener nofollow">Wikipedia — Cryptocurrency Tumbler</a>.
+    </p>
+
+    <div class="pillbar">
+      <span class="pill">Crypto Mixing</span>
+      <span class="pill">Tumbler Exposure</span>
+      <span class="pill">AML Flag</span>
+      <span class="pill">OFAC Risk</span>
+      <span class="pill">Transaction Obfuscation</span>
+    </div>
+
+    <div class="callout-grid" role="list">
+      <div class="mini" role="listitem">
+        <h3>How cash tornado mixing works technically</h3>
+        <p class="muted">A user deposits cryptocurrency into the mixing pool. The service aggregates deposits from multiple users and sends different coins — in the same amount minus fees — back to a designated output address. The link between the input and output addresses is broken because the returned funds come from a collective pool, not directly from the depositor. Smart-contract-based mixers like Tornado Cash use zero-knowledge proofs to mathematically guarantee this unlinkability.</p>
+        <div class="kpi-badges"><span>Pool aggregation</span><span>ZK proofs (smart contract)</span><span>Broken tx graph</span></div>
+      </div>
+      <div class="mini" role="listitem">
+        <h3>Why people use cash tornado services</h3>
+        <p class="muted">Motivations vary widely. Privacy-conscious users employ mixing to prevent their financial history from being visible to any entity that can read the blockchain — including employers, business competitors, and data brokers. Illicit actors use the same services to launder criminal proceeds. AML tools cannot distinguish intent from the on-chain pattern alone — which is why mixer exposure triggers enhanced due diligence rather than automatic criminal suspicion.</p>
+        <div class="kpi-badges"><span>Privacy motivation</span><span>Illicit motivation</span><span>Intent not visible on-chain</span></div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:1rem;">
+      <strong>Compliance framing:</strong> The use of a cash tornado mixer is not inherently criminal in most jurisdictions — but it is an AML red flag because it deliberately defeats the transaction traceability that AML frameworks depend on. FATF guidance specifically cites "use of anonymity-enhancing technologies" as a risk indicator requiring enhanced due diligence.
+    </div>
+  </section>
+
+  <section class="card" id="stats">
+    <h2>Cash Tornado Scale: Crypto Mixer Activity by the Numbers</h2>
+
+    <div class="stat-block" aria-label="Key mixer statistics">
+      <div class="stat">
+        <span class="stat-num">$7.8B</span>
+        <div class="stat-lbl">Laundered via mixers &amp; DeFi in 2023<br><small>Chainalysis 2024 Report</small></div>
+      </div>
+      <div class="stat">
+        <span class="stat-num">~30%</span>
+        <div class="stat-lbl">Of ransomware payments routed through mixers<br><small>Chainalysis estimates</small></div>
+      </div>
+      <div class="stat">
+        <span class="stat-num">$455M+</span>
+        <div class="stat-lbl">Processed by Tornado Cash prior to OFAC sanctions<br><small>On-chain data, 2019–2022</small></div>
+      </div>
+      <div class="stat">
+        <span class="stat-num">High</span>
+        <div class="stat-lbl">AML risk score for direct mixer exposure<br><small>All major analytics providers</small></div>
+      </div>
+    </div>
+
+    <div class="note">
+      Mixer usage as a share of illicit crypto flows has increased as criminals have adopted more sophisticated obfuscation techniques. The $7.8B figure includes cross-chain bridge abuse used for similar obfuscation purposes. Source: <a href="https://www.chainalysis.com/reports/crypto-crime-report/" target="_blank" rel="noopener nofollow">Chainalysis 2024 Crypto Crime Report</a>.
+    </div>
+  </section>
+
+  <section class="card" id="how-detected">
+    <h2>How Blockchain Analytics Detect Cash Tornado Exposure</h2>
+    <p>
+      Despite the obfuscation that cash tornado services create, blockchain analytics tools
+      have developed multiple techniques to identify mixer-associated addresses and trace
+      funds that have passed through them.
+    </p>
+
+    <div class="callout-grid">
+      <div class="mini">
+        <h3>Known mixer cluster attribution</h3>
+        <p class="muted">Analytics providers maintain databases of wallet addresses associated with known cash tornado and mixer services — including deposit addresses, withdrawal addresses, and smart contract addresses. When a screened wallet has transacted with any address in these clusters, the tool flags it as having mixer exposure. Chainalysis, Elliptic, and TRM Labs each maintain independently-developed mixer cluster databases.</p>
+        <div class="kpi-badges"><span>Deposit addresses</span><span>Smart contracts</span><span>Cluster databases</span></div>
+      </div>
+      <div class="mini">
+        <h3>Behavioural pattern detection</h3>
+        <p class="muted">Even without a direct cluster match, analytics tools flag transaction patterns characteristic of mixing: equal-amount outputs to multiple unrelated addresses, rapid sequential address generation followed by consolidation, and timing patterns consistent with mixing pool participation. These heuristics catch novel or uncatalogued mixing services before they are formally attributed.</p>
+        <div class="kpi-badges"><span>Equal-amount outputs</span><span>Rapid address cycling</span><span>Timing patterns</span></div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Limitation:</strong> CoinJoin implementations — where multiple users combine legitimate transactions into a single transaction for privacy — produce patterns similar to mixing and can generate false positives. Not all CoinJoin activity indicates illicit intent. The hop distance and volume of exposure, not the pattern alone, should inform the compliance response.
+    </div>
+  </section>
+
+  <section class="card" id="risk">
+    <h2>Cash Tornado AML Risk: Why It Triggers Compliance Flags</h2>
+
+    <div style="margin:.75rem 0">
+      <div class="risk-row"><span class="risk-lbl">Low (0–25)</span><div class="risk-track"><div class="risk-fill low"></div></div><span class="risk-val ok">Standard</span></div>
+      <div class="risk-row"><span class="risk-lbl">Medium (26–74)</span><div class="risk-track"><div class="risk-fill med"></div></div><span class="risk-val warn">EDD</span></div>
+      <div class="risk-row"><span class="risk-lbl">High (75–100)</span><div class="risk-track"><div class="risk-fill high"></div></div><span class="risk-val err">Block / SAR</span></div>
+    </div>
+
+    <table aria-label="Cash tornado exposure risk levels">
+      <thead>
+        <tr><th>Exposure type</th><th>Typical risk score</th><th>Compliance response</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td><strong>Direct mixer deposit/withdrawal (1 hop)</strong></td>
+          <td class="err">High 80–100</td>
+          <td>Block; source-of-funds request; SAR if criminal proceeds suspected</td>
+        </tr>
+        <tr>
+          <td><strong>Funds received from mixer output (1 hop)</strong></td>
+          <td class="err">High 70–90</td>
+          <td>Block above volume threshold; EDD; possible SAR</td>
+        </tr>
+        <tr class="highlight">
+          <td><strong>Indirect exposure via intermediary (2 hops)</strong></td>
+          <td class="warn">Medium 40–70</td>
+          <td>Enhanced due diligence; source-of-funds documentation; analyst review</td>
+        </tr>
+        <tr>
+          <td><strong>Distant indirect exposure (3+ hops)</strong></td>
+          <td class="warn">Low–Medium 15–40</td>
+          <td>Document and allow; increased monitoring; no block required</td>
+        </tr>
+        <tr class="highlight">
+          <td><strong>OFAC-sanctioned mixer (e.g. Tornado Cash)</strong></td>
+          <td class="err">Critical — any score</td>
+          <td>Immediate block regardless of hop distance; SAR mandatory for US VASPs</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>OFAC exposure is a separate category:</strong> If a cash tornado service has been sanctioned by OFAC (as Tornado Cash was in August 2022), any interaction — direct or indirect — triggers the sanctions obligation independent of the standard AML risk score. Sanctions screening and AML monitoring are parallel obligations. See the current OFAC SDN list at <a href="https://ofac.treasury.gov/sanctions-programs-and-country-information" target="_blank" rel="noopener nofollow">ofac.treasury.gov</a>.
+    </div>
+  </section>
+
+  <section class="card" id="impact">
+    <h2>What Happens When a Wallet Has Cash Tornado Exposure</h2>
+    <p>
+      The practical consequences of cash tornado mixer exposure depend on the type of exposure,
+      the platform reviewing the wallet, and the jurisdiction involved.
+    </p>
+    <ul>
+      <li><strong>At a centralised exchange:</strong> deposits from addresses with direct mixer exposure are commonly blocked or held pending enhanced due diligence. The user is typically asked to provide source-of-funds documentation. If the exchange cannot verify the funds' legitimate origin, the deposit may be refused and the account suspended.</li>
+      <li><strong>At a DeFi protocol frontend:</strong> many DeFi protocols screen wallet connections at the frontend using blockchain analytics APIs. Addresses with cash tornado exposure above configured thresholds may be blocked from interacting with the protocol interface — though the underlying smart contract often remains accessible directly.</li>
+      <li><strong>At a payment processor:</strong> transactions from mixer-exposed wallets are screened and may be reversed or held. The merchant may be notified, and in serious cases the payment processor may file a SAR with the relevant FIU.</li>
+      <li><strong>For the individual user:</strong> the immediate consequence is friction — account holds, withdrawal delays, and requests for documentation. In serious cases involving OFAC-sanctioned mixers, US-nexus entities have no discretion and must block regardless of the user's stated intent.</li>
+    </ul>
+
+    <div class="note">
+      <strong>Practical reality:</strong> Many users with cash tornado exposure are privacy-conscious individuals who used a mixing service for legitimate reasons without understanding the AML implications. The compliance system cannot distinguish their intent from that of a bad actor — which is why documentation of the funds' legitimate source is the primary path to resolving a mixer-exposure flag.
+    </div>
+  </section>
+
+  <section class="card" id="tools">
+    <h2>Tools That Detect Cash Tornado Mixer Interactions</h2>
+
+    <table aria-label="Blockchain analytics tools detecting mixer exposure">
+      <thead>
+        <tr><th>Provider</th><th>Mixer / tumbler detection</th><th>OFAC coverage</th><th>Best for</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td><strong>Chainalysis KYT</strong></td>
+          <td>Comprehensive — largest mixer cluster database</td>
+          <td>Full OFAC SDN integration</td>
+          <td>Large exchanges; forensic investigations</td>
+        </tr>
+        <tr>
+          <td><strong>Elliptic Navigator</strong></td>
+          <td>Strong — includes DeFi mixer protocols</td>
+          <td>Full OFAC + EU sanctions</td>
+          <td>DeFi protocols; cross-chain operations</td>
+        </tr>
+        <tr class="highlight">
+          <td><strong>TRM Labs</strong></td>
+          <td>Good — wide chain coverage</td>
+          <td>Full OFAC + global sanctions</td>
+          <td>Mid-market VASPs; multi-chain</td>
+        </tr>
+        <tr>
+          <td><strong>Crystal Blockchain</strong></td>
+          <td>Good — strong Bitcoin mixer tracing</td>
+          <td>OFAC + EU sanctions</td>
+          <td>EU VASPs; Bitcoin-focused compliance</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      For wallets with cash tornado exposure involved in high-stakes decisions — large fund releases, regulatory inquiries, or legal proceedings — running the address through two providers and comparing outputs is recommended practice. Methodology: <a href="https://www.chainalysis.com/reports/crypto-crime-report/" target="_blank" rel="noopener nofollow">Chainalysis</a> · <a href="https://www.elliptic.co/resources" target="_blank" rel="noopener nofollow">Elliptic</a>.
+    </div>
+  </section>
+
+  <section class="card" id="user-response">
+    <h2>What to Do if Your Wallet Is Flagged for Cash Tornado Use</h2>
+    <ul>
+      <li><strong>Request the specific exposure details in writing.</strong> Ask the platform: what mixer or tumbler cluster was identified? At what hop distance? What volume of funds was involved? This information tells you what documentation will actually address the flag.</li>
+      <li><strong>Gather source-of-funds documentation.</strong> If you used a cash tornado service for privacy reasons and the underlying funds came from a legitimate source — exchange withdrawal, employment income, asset sale — collect that documentation. Exchange withdrawal records and bank statements are the most commonly accepted evidence.</li>
+      <li><strong>Run the address yourself.</strong> Use a blockchain analytics tool to understand exactly what exposure is being flagged. Compare to the platform's explanation — if the outputs diverge significantly, this is evidence for a dispute.</li>
+      <li><strong>Submit a formal dispute with documentation.</strong> Most regulated exchanges have a compliance review process. Submitting clear source-of-funds evidence typically resolves false-positive flags within 5–10 business days.</li>
+      <li><strong>For OFAC-sanctioned mixer exposure:</strong> if the exposure involves a sanctioned service (Tornado Cash post-August 2022), US-nexus platforms have no legal discretion to release funds regardless of your intent or documentation. Consult a cryptocurrency compliance attorney in this scenario.</li>
+    </ul>
+
+    <div class="note">
+      <strong>Most important step:</strong> Do not attempt to re-mix funds to "clean" the score — this deepens the AML exposure, adds new mixer flags to your transaction history, and is a textbook money laundering technique regardless of your original intent.
+    </div>
+  </section>
+
+  <section class="card" id="vasp-response">
+    <h2>How VASPs Should Respond to Cash Tornado Exposure</h2>
+
+    <div class="callout-grid">
+      <div class="mini">
+        <h3>Tiered response by exposure type</h3>
+        <p class="muted">
+          <strong>Direct interaction, high volume:</strong> block and request source-of-funds documentation. File SAR if criminal proceeds are suspected after review.<br>
+          <strong>Indirect at 2 hops:</strong> hold for analyst review; apply enhanced due diligence; request source-of-funds documentation before decision.<br>
+          <strong>Indirect at 3+ hops, low volume:</strong> document, allow, increase monitoring cadence.
+        </p>
+        <div class="kpi-badges"><span>Tiered responses</span><span>Hop distance matters</span><span>Volume threshold</span></div>
+      </div>
+      <div class="mini">
+        <h3>OFAC-sanctioned mixer: zero discretion</h3>
+        <p class="muted">
+          If the mixer involved is on the OFAC SDN list (Tornado Cash, Chipmixer, etc.), US-nexus VASPs have no legal discretion — they must block and report regardless of hop distance, user intent, or documentation provided. Non-US VASPs should check their own jurisdiction's sanctions list. Contact legal counsel if uncertain whether your VASP has US nexus. OFAC list at <a href="https://ofac.treasury.gov/sanctions-programs-and-country-information" target="_blank" rel="noopener nofollow">ofac.treasury.gov</a>.
+        </p>
+        <div class="kpi-badges"><span>No discretion</span><span>Block + report</span><span>Consult legal counsel</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="legal">
+    <h2>Legal Context: Cash Tornado Mixing and Regulatory Status (2026)</h2>
+    <ul>
+      <li><strong>FATF guidance:</strong> FATF Recommendation 15 explicitly cites anonymity-enhancing technologies as risk indicators requiring enhanced due diligence. FATF's updated virtual asset guidance (2021) classifies mixer usage as a red flag in the risk-based AML framework. Full guidance at <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Guidance-RBA-virtual-assets-2021.html" target="_blank" rel="noopener nofollow">fatf-gafi.org</a>.</li>
+      <li><strong>OFAC sanctions (US):</strong> Tornado Cash was added to the OFAC SDN list in August 2022, making any interaction with its smart contracts a potential sanctions violation for US persons and entities. Chipmixer was sanctioned and seized in March 2023. FinCEN guidance at <a href="https://www.fincen.gov/resources/statutes-regulations/guidance/application-fincens-regulations-certain-business-models" target="_blank" rel="noopener nofollow">fincen.gov</a>.</li>
+      <li><strong>EU regulatory position:</strong> The EU's MiCA regulation and Transfer of Funds Regulation (TFR) both treat mixer usage as a high-risk indicator requiring enhanced controls. Several EU member states have issued specific guidance on mixer-related EDD obligations.</li>
+      <li><strong>Criminal prosecutions:</strong> operators of centralised mixing services have faced prosecution in multiple jurisdictions — including the US, Netherlands, and Germany — under money transmission and money laundering statutes. Running a cash tornado-style service without proper licensing carries significant criminal exposure.</li>
+    </ul>
+
+    <div class="note">
+      <strong>User legal exposure:</strong> Using a cash tornado mixer is not inherently criminal in most jurisdictions. However, using one to launder proceeds of crime is a criminal offense everywhere. Interaction with an OFAC-sanctioned mixer (for US persons and entities with US nexus) may itself constitute a sanctions violation even without criminal intent.
+    </div>
+  </section>
+
+  <section class="card" id="best-practices">
+    <h2>Best Practices for Compliance Teams Handling Cash Tornado Flags</h2>
+    <ul>
+      <li><strong>Configure per-category thresholds, not a single score cutoff.</strong> Cash tornado / mixer exposure at 1 hop requires a different response from indirect exposure at 3+ hops. Blanket blocking of all mixer-flagged addresses generates disproportionate false positives — particularly against CoinJoin users.</li>
+      <li><strong>Separate OFAC-sanctioned mixer exposure from non-sanctioned exposure.</strong> Sanctioned mixers (Tornado Cash, Chipmixer) require zero-discretion blocking for US-nexus VASPs regardless of score. Non-sanctioned mixers require risk-based EDD. Configure these as separate policy rules.</li>
+      <li><strong>Build a source-of-funds documentation process before you need it.</strong> When a cash tornado flag triggers an account hold, users need a clear path to submit evidence. Document the required evidence types and the review SLA in advance.</li>
+      <li><strong>Track and audit your mixer-related false positive rate.</strong> If a high proportion of accounts blocked for cash tornado exposure are subsequently cleared after analyst review, your threshold or hop-distance weighting is miscalibrated.</li>
+      <li><strong>Document every decision with the specific exposure details.</strong> "Direct mixer interaction at 1 hop, $12,000 volume, policy §3.2 requires EDD, action: account held pending source-of-funds submission" is defensible. "Mixer flag, blocked" is not.</li>
+    </ul>
+
+    <div class="note">
+      <strong>Most common mistake:</strong> Treating all cash tornado / mixer exposure identically regardless of hop distance. A compliance programme that blocks 3-hop indirect CoinJoin exposure at the same threshold as direct Tornado Cash interaction will generate unnecessary user friction and potential wrongful account closure claims without meaningfully improving AML effectiveness.
+    </div>
+  </section>
+
+  <section class="card" id="troubleshooting">
+    <h2>Troubleshooting Cash Tornado Flag Disputes</h2>
+
+    <h3>"Flagged for mixer exposure but never used a mixing service"</h3>
+    <ul>
+      <li>Funds received from another party may carry indirect mixer exposure if that party used a cash tornado service. This is the most common explanation for unexpected mixer flags on clean wallets. Request the specific cluster and hop distance from the platform — if the exposure is at 2+ hops through a legitimate intermediary, this is strong grounds for a documented dispute.</li>
+    </ul>
+
+    <h3>"Flagged for Tornado Cash exposure on funds predating the OFAC sanction"</h3>
+    <ul>
+      <li>OFAC sanctions are generally not retroactive for civil purposes — interactions prior to the August 2022 designation date are treated differently from post-designation interactions. However, analytics tools still flag pre-sanction Tornado Cash interactions as high-risk mixer exposure (separate from the sanctions overlay). Document the transaction dates and present this as part of your dispute.</li>
+    </ul>
+
+    <h3>"Two analytics tools return very different scores for the same mixer-exposed address"</h3>
+    <ul>
+      <li>Vendors differ in their mixer cluster attribution databases and hop-distance weighting. One tool may score a 3-hop connection at 65; another at 35. Use the more conservative result as your compliance starting point, and document the divergence as evidence that the exposure picture is not clear-cut when submitting a dispute.</li>
+    </ul>
+
+    <div class="note">
+      <strong>Key evidence to gather:</strong> For any cash tornado flag dispute, collect: (1) the specific mixer cluster name and interaction date from the analytics report, (2) evidence of where the funds originated before the mixer interaction, (3) comparison results from a second analytics provider, and (4) any documentation of the legitimate purpose of the transaction. The stronger this evidence package, the faster and more likely a successful dispute resolution.
+    </div>
+  </section>
+
+  <section class="eeat" id="eeat" aria-labelledby="eeat-title">
+    <h2 id="eeat-title">Cash Tornado: Sources &amp; Authoritative References</h2>
+
+    <div class="grid-2">
+      <div>
+        <h3>Regulatory &amp; legal standards</h3>
+        <ul>
+          <li><a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Guidance-RBA-virtual-assets-2021.html" target="_blank" rel="noopener nofollow">FATF — Risk-Based Approach Guidance: Mixer / Anonymity-Enhancing Technologies</a></li>
+          <li><a href="https://ofac.treasury.gov/sanctions-programs-and-country-information" target="_blank" rel="noopener nofollow">OFAC — Sanctions Programs including Tornado Cash &amp; Chipmixer</a></li>
+          <li><a href="https://www.fincen.gov/resources/statutes-regulations/guidance/application-fincens-regulations-certain-business-models" target="_blank" rel="noopener nofollow">FinCEN — BSA Application to Virtual Currency Mixers</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Cryptocurrency_tumbler" target="_blank" rel="noopener nofollow">Wikipedia — Cryptocurrency Tumbler (technical reference)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Analytics &amp; research</h3>
+        <ul>
+          <li><a href="https://www.chainalysis.com/reports/crypto-crime-report/" target="_blank" rel="noopener nofollow">Chainalysis — 2024 Crypto Crime Report (mixer statistics)</a></li>
+          <li><a href="https://www.elliptic.co/resources" target="_blank" rel="noopener nofollow">Elliptic — Mixer Typologies &amp; Detection Methodology</a></li>
+          <li><a href="https://www.trmlabs.com/blog" target="_blank" rel="noopener nofollow">TRM Labs — Blockchain Intelligence on Mixer Activity</a></li>
+          <li><a href="https://crystalblockchain.com/resources/" target="_blank" rel="noopener nofollow">Crystal Blockchain — Bitcoin Mixer Tracing Resources</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:1rem;">
+      <strong>About:</strong> Prepared by Crypto Finance Experts. Covers cash tornado crypto mixing, AML risk, blockchain analytics detection, VASP compliance responses, OFAC sanctions context, and dispute resolution. Updated <time datetime="2026-03-18">March 18, 2026</time>. Not legal advice.
+    </div>
+  </section>
+
+  <section class="card faq-section" aria-labelledby="faq">
+    <h2 id="faq">Cash Tornado: Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f1" id="b1">
+        <h3>What is a cash tornado in crypto?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f1" class="faq-content" role="region" aria-labelledby="b1">
+        <p>A cash tornado in the crypto context refers to cryptocurrency mixing or tumbling services that rapidly cycle digital assets through many addresses to break the on-chain transaction trail. Named for the spinning, disorienting pattern of fund flows they create in the blockchain transaction graph, these services aggregate deposits from multiple users and return equivalent amounts to designated output addresses — making it difficult for analytics tools to link input and output.</p>
+        <p>The most prominent example is Tornado Cash, a smart-contract-based Ethereum mixer that was sanctioned by OFAC in August 2022. The broader category includes centralised coin mixers, decentralised protocol mixers, and CoinJoin implementations. All are classified as high-risk in AML screening because deliberately obscuring transaction provenance is a recognised money laundering technique under FATF guidance — regardless of the individual user's underlying motivation.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f2" id="b2">
+        <h3>Why does cash tornado mixer exposure trigger AML flags?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f2" class="faq-content" role="region" aria-labelledby="b2">
+        <p>Mixer exposure triggers AML flags because deliberately obfuscating fund flows is a textbook money laundering technique. FATF Recommendation 15 and its updated virtual asset guidance explicitly cite anonymity-enhancing technologies as risk indicators requiring enhanced due diligence. When a wallet has sent funds to or received funds from a known cash tornado cluster, blockchain analytics tools score it as high-risk because the obfuscation pattern — regardless of intent — makes it impossible to verify the legitimate origin of funds.</p>
+        <p>The compliance system cannot distinguish intent from the on-chain pattern alone. A privacy-conscious user and a criminal using the same mixer produce identical transaction patterns. This is why mixer exposure triggers enhanced due diligence and source-of-funds documentation requests rather than automatic blocking in most non-sanctions cases — the compliance process is designed to resolve the ambiguity, not presume guilt.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f3" id="b3">
+        <h3>Is using a cash tornado mixer illegal?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f3" class="faq-content" role="region" aria-labelledby="b3">
+        <p>In most jurisdictions, using a cryptocurrency mixer is not inherently illegal — it is a privacy tool, and financial privacy is a legitimate interest. However, using a mixer to launder proceeds of crime is illegal everywhere. The distinction is what the funds represent before they enter the mixer, not the mixing act itself.</p>
+        <p>There is an important exception: OFAC-sanctioned mixers. For US persons and entities with US nexus, interacting with a sanctioned mixer (Tornado Cash post-August 2022, Chipmixer post-March 2023) may itself constitute a sanctions violation regardless of the underlying funds' legitimacy. This is a strict liability standard — intent is not a defence under OFAC sanctions law. Non-US users should check their jurisdiction's equivalent sanctions lists. When in doubt about whether a specific service is sanctioned, consult a cryptocurrency compliance attorney before interacting.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f4" id="b4">
+        <h3>My wallet was flagged for cash tornado exposure — what should I do?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f4" class="faq-content" role="region" aria-labelledby="b4">
+        <p>First, request the specific exposure details: which mixer cluster was identified, at what hop distance, and involving what volume of funds. This tells you what documentation will be effective. If the exposure is direct (1 hop) and recent, you need strong source-of-funds evidence. If the exposure is indirect (2+ hops), the evidential burden is lower.</p>
+        <p>Second, gather source-of-funds documentation showing where the funds came from before they entered the mixer — exchange withdrawal records, bank statements, payroll documentation, or OTC desk receipts. Third, run the flagged address through a second analytics tool to understand the exposure picture independently. If the two tools return significantly different assessments, document this as evidence the flag may be a false positive. Submit all of this as a formal dispute to the platform's compliance team. Most exchanges clear documented legitimate cases within 5–10 business days.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f5" id="b5">
+        <h3>What is the difference between Tornado Cash and other cash tornado mixers?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f5" class="faq-content" role="region" aria-labelledby="b5">
+        <p>Tornado Cash is a smart-contract-based mixer on Ethereum that uses zero-knowledge proofs to provide cryptographic guarantees of transaction unlinkability — mathematically stronger than traditional centralised mixers. It operates without a central operator, making it difficult to seize or shut down in the traditional sense. OFAC sanctioned Tornado Cash's smart contract addresses in August 2022, making interaction with those contracts a potential US sanctions violation.</p>
+        <p>Centralised cash tornado-style mixers — like Chipmixer (seized and sanctioned in 2023) — operate as businesses where users trust the operator with their funds during the mixing process. They are easier for law enforcement to shut down and seize but carry counterparty risk for users. CoinJoin implementations (Wasabi Wallet, JoinMarket) achieve mixing through collaborative transactions without a central operator but are also flagged as mixing activity in AML screening tools. All produce similar AML flags despite their technical differences.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f6" id="b6">
+        <h3>How do analytics tools detect cash tornado mixing?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f6" class="faq-content" role="region" aria-labelledby="b6">
+        <p>Analytics tools use two primary approaches. First, known cluster attribution: providers maintain databases of wallet addresses associated with identified mixer services — deposit addresses, smart contract addresses, and withdrawal addresses — and flag any interaction with those clusters. Second, behavioural pattern detection: equal-amount outputs to multiple unrelated addresses, rapid sequential address generation, and timing patterns consistent with pool participation flag novel or uncatalogued services before they are formally attributed.</p>
+        <p>For smart-contract-based mixers like Tornado Cash, the on-chain interaction with the contract address is directly visible and attributable — there is no ambiguity about whether a wallet has interacted with the protocol. For centralised mixers, the attribution relies more heavily on law enforcement intelligence and deposit pattern analysis. Both approaches are used by all major analytics providers — Chainalysis, Elliptic, TRM Labs, and Crystal Blockchain — and are updated continuously as new mixing services emerge.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f7" id="b7">
+        <h3>Does cash tornado exposure affect all crypto assets or just Ethereum?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f7" class="faq-content" role="region" aria-labelledby="b7">
+        <p>Mixer exposure affects wallets across all blockchains — not just Ethereum. Bitcoin has its own long history of mixing services (Chipmixer, Helix, BestMixer — all shut down or sanctioned) and CoinJoin implementations. Monero's built-in privacy features mean all Monero transactions are treated as having inherent mixing characteristics by most AML tools. Newer chains including Solana, BSC, and Polygon have their own mixer protocols that analytics tools track.</p>
+        <p>Tornado Cash specifically operated on Ethereum and several EVM-compatible chains (BSC, Polygon, Arbitrum, Optimism). The OFAC sanction covers all instances of the Tornado Cash smart contracts across all chains where they are deployed — not just Ethereum mainnet. When assessing cash tornado exposure, always specify the chain and confirm whether the analytics tool's coverage extends to that chain at the relevant depth.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f8" id="b8">
+        <h3>Can I clean my wallet's AML score after cash tornado exposure?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f8" class="faq-content" role="region" aria-labelledby="b8">
+        <p>No — and attempting to do so by using additional mixing services makes the situation significantly worse. Each additional mixer interaction adds new exposure flags to your transaction history. The on-chain transaction record is permanent and immutable — analytics tools will continue to see the original mixer interaction regardless of subsequent transactions.</p>
+        <p>The only legitimate path to resolving cash tornado exposure in a compliance context is source-of-funds documentation demonstrating that the underlying funds came from a legitimate source before the mixing. This does not remove the flag from analytics tools — the exposure history remains visible — but it provides the documentation that compliance teams and regulators need to make an informed decision that the funds are not criminal proceeds. In some cases, analytics providers will update their entity attribution if they determine a cluster was incorrectly identified — but this applies to clustering errors, not to confirmed mixer interactions.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f9" id="b9">
+        <h3>What documentation clears a cash tornado compliance flag?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f9" class="faq-content" role="region" aria-labelledby="b9">
+        <p>The most effective documentation package for resolving a cash tornado exposure flag includes: proof of where the funds originated before the mixing (exchange withdrawal records, bank statements, payroll documentation, or OTC desk receipts); the dates of the transactions in question relative to the mixer interaction; a second analytics tool report showing the specific exposure details and hop distances; and a written explanation of the business or personal reason for the transaction.</p>
+        <p>The strength of documentation required scales with the severity of the exposure. Indirect exposure at 3+ hops through a legitimate exchange may need only a brief explanation and withdrawal records. Direct mixer interaction at 1 hop requires comprehensive source-of-funds evidence and may still result in an account hold pending SAR assessment even with documentation provided. For OFAC-sanctioned mixer exposure, no documentation resolves the obligation for US-nexus VASPs — consult a cryptocurrency compliance attorney.</p>
+      </div>
+    </div>
+
+  </section>
+
+</article>
+</main>
+
+<footer class="container" role="contentinfo" style="padding:2rem 0;border-top:1px solid var(--line);margin-top:2rem">
+  <p class="muted">© 2026 Cash Tornado Guide. Educational content with compliance-first operational focus. Not legal advice. <time datetime="2026-03-18">March 18, 2026</time>.</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      const body = document.getElementById(btn.getAttribute('aria-controls'));
+      btn.setAttribute('aria-expanded', String(!open));
+      btn.querySelector('.faq-plus').textContent = open ? '+' : '−';
+      body.style.maxHeight = open ? '0' : body.scrollHeight + 'px';
+      body.classList.toggle('open', !open);
+    });
+  });
+</script>
+
+</body>
+</html>
